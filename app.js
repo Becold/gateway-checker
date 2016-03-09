@@ -9,11 +9,15 @@ var config = {
         logPath: "logs/logs.log"
     },
     ping: {
-        delay: 150*1000, // 15 secondes
-        hosts: ['192.168.0.1', 'google.com', 'yahoo.fr']
+        delay: 15*1000, // 15 secondes
+        gatewayIp: '192.168.0.1',
+        hosts: [
+            ['google.com', null],
+            ['yahoo.fr', null]
+        ]
     },
     speedtest: {
-        delay: 5*1000, // 5 minutes
+        delay: 60*1000, // 1 minute
         logsFolderPath: "logs/speedtest/"
     }
 };
