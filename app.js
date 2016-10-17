@@ -17,7 +17,7 @@ var config = {
         ]
     },
     speedtest: {
-        delay: 15*60*1000, // 15 minutes
+        delay: 60*1000, // 15 minutes
         logsFolderPath: "logs/speedtest/",
         csv: {
             enable: true,
