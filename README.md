@@ -1,11 +1,13 @@
 # Gateway-Checker
-Node.js app - Periodically make a pingtest and a speedtest  
+Node.js application - Effectue périodiquement un pingtest et un speedtest  
 
-Vivant en coloc' pendant quelques temps, j'avais besoin de savoir les moments de la journée où j'avais un meilleur débit. J'ai donc écrit ce script qui lance régulièrement des speedtests.
+Vivant en coloc', j'avais besoin de savoir les moments de la journée où j'avais le meilleur débit. J'ai donc écrit cette application Node.js qui lance régulièrement des speedtests.
 
-## Install & use
+![Preview](https://cloud.githubusercontent.com/assets/12863317/19455529/979d7a34-94bd-11e6-91ac-225eb6bd4ca1.png)
+
+## Installation & utilisation
 > npm i
 > node app.js
 
-## Config
-Inside app.js
+## Configuration
+A l'intérieur de app.js
