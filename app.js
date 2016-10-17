@@ -2,6 +2,7 @@
 GLOBAL.Log = require('./lib/Log');
 var PingtestEvent = require('./lib/PingtestEvents');
 var SpeedtestEvent = require('./lib/SpeedtestEvents');
+var Csv = require("./lib/Csv");
 
 // Config
 var config = {
@@ -9,20 +10,24 @@ var config = {
         logPath: "logs/logs.log"
     },
     ping: {
-        delay: 15*1000, // 15 secondes
-        gatewayIp: '192.168.0.1',
+        delay: -1, // -1 = disabled
         hosts: [
-            ['google.com', null],
-            ['yahoo.fr', null]
+            'google.com',
+            'yahoo.fr'
         ]
     },
     speedtest: {
-        delay: 60*1000, // 1 minute
-        logsFolderPath: "logs/speedtest/"
+        delay: 15*60*1000, // 15 minutes
+        logsFolderPath: "logs/speedtest/",
+        csv: {
+            enable: true,
+            csvPath: "logs/speedtest.csv"
+        }
     }
 };
 
 // Initialisation des services
 Log.init(config);
+Csv.init(config);
 PingtestEvent.init(config);
 SpeedtestEvent.init(config);

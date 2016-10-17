@@ -9,8 +9,7 @@
   "author": "Romain Marbaix",
   "license": "ISC",
   "dependencies": {
-    "ajax-request": "^1.2.1",
     "ping": "^0.1.10",
-    "speedtest-net": "^1.2.5"
+    "speedtest-net": "^1.2.8"
   }
 }
