@@ -1,11 +1,11 @@
 // Dépendances
-GLOBAL.Log = require('./lib/Log');
-var PingtestEvent = require('./lib/PingtestEvents');
-var SpeedtestEvent = require('./lib/SpeedtestEvents');
-var Csv = require("./lib/Csv");
+const Log = require('./lib/Log');
+const PingtestEvent = require('./lib/PingtestEvents');
+const SpeedtestEvent = require('./lib/SpeedtestEvents');
+const Csv = require("./lib/Csv");
 
 // Config
-var config = {
+const config = {
     logs: {
         logPath: "logs/logs.log"
     },
@@ -17,7 +17,7 @@ var config = {
         ]
     },
     speedtest: {
-        delay: 60*1000, // 15 minutes
+        delay: 60 * 1000, // 60 secondes
         logsFolderPath: "logs/speedtest/",
         csv: {
             enable: true,
@@ -26,8 +26,28 @@ var config = {
     }
 };
 
-// Initialisation des services
-Log.init(config);
-Csv.init(config);
-PingtestEvent.init(config);
-SpeedtestEvent.init(config);
+class App {
+    constructor(configuration) {
+        this.configuration = configuration;
+        this.logger = Log;
+        this.csv = Csv;
+        this.pingtest = PingtestEvent;
+        this.speedtest = SpeedtestEvent;
+    }
+
+    init() {
+        this.logger = this.logger.init(this, config);
+        this.csv = this.csv.init(this, config);
+        this.pingtest = this.pingtest.init(this, config);
+        this.speedtest = this.speedtest.init(this, config);
+
+        return this;
+    }
+
+    run() {
+        this.speedtest.doSpeedtest();
+        this.pingtest.doPingtest();
+    }
+}
+
+new App(config).init().run();
