@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "ping": "^0.1.10",
-    "speedtest-net": "^1.2.8"
+    "speedtest-net": "^1.6.2"
   }
 }
